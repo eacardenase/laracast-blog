@@ -21,8 +21,8 @@ Route::get('posts/{post}', function ($slug) {
     $path = __DIR__ . "/../resources/posts/$slug.html";
 
     if (!file_exists($path)) {
-        // ddd("File does not exists.");
-        // abort(404);
+        // ddd("File does not exists."); // dump, die and debug
+        // abort(404); // error page
         return redirect('/');
     }
 
