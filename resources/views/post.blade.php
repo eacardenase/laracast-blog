@@ -11,7 +11,7 @@
 
 <body>
     <article>
-        <?= $post; ?>
+        <h1><?= $post->title; ?></h1>
     </article>
     <a href="/">Back</a>
 </body>
