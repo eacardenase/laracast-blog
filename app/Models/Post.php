@@ -24,7 +24,7 @@ class Post
 
     public static function all(): Collection
     {
-        return collect(File::files(resource_path('posts')))
+        return cache()->rememberForever('posts.all', fn () => collect(File::files(resource_path('posts')))
             ->map(fn ($file) => YamlFrontMatter::parseFile($file))
             ->map(fn ($document) => new Post(
                 $document->title,
@@ -32,6 +32,7 @@ class Post
                 $document->date,
                 $document->body(),
                 $document->slug
-            ))->sortByDesc('date');
+            ))
+            ->sortByDesc('date'));
     }
 }
