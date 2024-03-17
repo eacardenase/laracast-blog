@@ -9,9 +9,6 @@
 </head>
 
 <body>
-    <h1>
-        @yield('banner')
-    </h1>
-    @yield('content')
+    {{ $slot }}
 </body>
 </html>
