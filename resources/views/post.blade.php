@@ -2,9 +2,7 @@
     <article>
         <h1>{{ $post->title }}</h1>
         <div>
-            <p>
-                {!! $post->body // not escaped !!}
-            </p>
+            {!! $post->body // not escaped !!}
         </div>
     </article>
     <a href="/">Go Back</a>
