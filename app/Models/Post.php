@@ -13,14 +13,12 @@ class Post extends Model
      * everything is fillable except for the following properties
      * if empty means that we want mass assignment protection disabled
      */
-    //    protected $guarded = [];
+    protected $guarded = [];
 
-    protected $fillable = ['title', 'slug', 'excerpt', 'body']; // only accept the following properties
+    //    protected $fillable = ['title', 'slug', 'excerpt', 'body']; // only accept the following properties
 
-    public function getRouteKeyName(): string
+    public function category()
     {
-        return 'slug';
+        return $this->belongsTo(Category::class);
     }
-
-
 }
