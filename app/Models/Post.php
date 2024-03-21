@@ -15,5 +15,5 @@ class Post extends Model
      */
     //    protected $guarded = [];
 
-    protected $fillable = ['title', 'excerpt', 'body']; // only accept the following properties
+    protected $fillable = ['title', 'slug', 'excerpt', 'body']; // only accept the following properties
 }
