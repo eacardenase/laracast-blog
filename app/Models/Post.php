@@ -17,6 +17,8 @@ class Post extends Model
 
     //    protected $fillable = ['title', 'slug', 'excerpt', 'body']; // only accept the following properties
 
+    protected $with = ['category', 'author']; // eager these relationships by default
+
     public function category()
     {
         return $this->belongsTo(Category::class);
