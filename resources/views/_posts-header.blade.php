@@ -31,7 +31,7 @@
                     </button>
                 </x-slot:trigger>
 
-                <x-dropdown-item href="/">All</x-dropdown-item>
+                <x-dropdown-item href="/" :active="request()->routeIs('home')">All</x-dropdown-item>
                 @foreach($categories as $category)
                     <x-dropdown-item
                         href="/categories/{{ $category->slug }}"
