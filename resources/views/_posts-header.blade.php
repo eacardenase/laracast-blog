@@ -19,7 +19,7 @@
                     <button class="py-2 px-3 text-sm text-left font-semibold w-full lg:w-32 flex lg:inline-flex mr-3">
                         {{ isset($currentCategory) ? ucwords($currentCategory?->name) : "Categories" }}
 
-                        <x-down-arrow class="absolute pointer-events-none" style="right: 12px;"/>
+                        <x-icon name="arrow-down" class="absolute pointer-events-none" style="right: 12px;"/>
                     </button>
                 </x-slot:trigger>
 
