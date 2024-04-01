@@ -86,6 +86,10 @@
                         id="password"
                         required
                     >
+
+                    @error('password')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="mb-6">
@@ -96,6 +100,16 @@
                         Submit
                     </button>
                 </div>
+
+                @if($errors->any())
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>
+                                <p class="text-red-500 text-xs">{{ $error }}</p>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </form>
         </main>
     </section>
