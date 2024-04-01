@@ -15,8 +15,26 @@
             </a>
         </div>
 
-        <div class="mt-8 md:mt-0">
-            <a href="/" class="text-xs font-bold uppercase">Home Page</a>
+        <div class="mt-8 md:mt-0 flex items-center">
+            @auth()
+                <span class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->username }}!</span>
+
+                <form action="/logout" method="post">
+                    @csrf
+
+                    <button type="submit"
+                            class="text-xs font-semibold rounded-full text-blue-500 ml-6 py-3 px-5 border border-blue-500">
+                        Log Out
+                    </button>
+                </form>
+            @else
+                <a href="/register" class="text-xs font-bold uppercase">Register</a>
+                <a href="/login"
+                   class="text-xs font-semibold rounded-full text-blue-500 ml-6 py-3 px-5 border border-blue-500"
+                >Log In
+                </a>
+            @endauth
+
 
             <a href="#" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">
                 Subscribe for Updates
