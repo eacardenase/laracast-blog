@@ -56,35 +56,37 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                    <form action="#" method="POST" class="border border-gray-200 p-6 rounded-xl">
-                        @csrf
+                    <x-panel>
+                        <form action="#" method="POST">
+                            @csrf
 
-                        <header class="flex items-center">
-                            <img
-                                class="rounded-full mr-4" src="https://i.pravatar.cc/60?img={{ rand(1, 70) }}"
-                                alt="avatar"
-                                height="40"
-                                width="40"
-                            >
-                            <h2>Want to participate?</h2>
-                        </header>
+                            <header class="flex items-center">
+                                <img
+                                    class="rounded-full mr-4" src="https://i.pravatar.cc/60?img={{ rand(1, 70) }}"
+                                    alt="avatar"
+                                    height="40"
+                                    width="40"
+                                >
+                                <h2>Want to participate?</h2>
+                            </header>
 
-                        <div class="mt-8">
+                            <div class="mt-8">
                             <textarea
                                 name="body"
                                 class="w-full py-2 px-4 rounded-xl border border-gray-200"
                                 rows="5"
                                 placeholder="Quick, think on something to say!"
                             ></textarea>
-                        </div>
+                            </div>
 
-                        <div class="flex justify-end mt-4">
-                            <button type="submit"
-                                    class="bg-blue-500 text-white px-10 py-2 rounded-full border border-blue-600 uppercase font-semibold text-xs hover:bg-blue-600">
-                                Post
-                            </button>
-                        </div>
-                    </form>
+                            <div class="flex justify-end mt-4">
+                                <button type="submit"
+                                        class="bg-blue-500 text-white px-10 py-2 rounded-full uppercase font-semibold text-xs hover:bg-blue-600">
+                                    Post
+                                </button>
+                            </div>
+                        </form>
+                    </x-panel>
                     @foreach($post->comments as $comment)
                         <x-post-comment :comment="$comment"/>
                     @endforeach
