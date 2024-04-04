@@ -57,7 +57,7 @@
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
                     <x-panel>
-                        <form action="#" method="POST">
+                        <form action="/posts/{{ $post->slug }}/comment" method="POST">
                             @csrf
 
                             <header class="flex items-center">
