@@ -13,7 +13,7 @@
                     </label>
 
                     <input
-                        class="border border-gray-400 p-2 w-full"
+                        class="border border-gray-400 p-2 w-full rounded-xl"
                         type="text"
                         name="title"
                         id="title"
@@ -35,7 +35,7 @@
                     </label>
 
                     <input
-                        class="border border-gray-400 p-2 w-full"
+                        class="border border-gray-400 p-2 w-full rounded-xl"
                         type="text"
                         name="slug"
                         id="slug"
@@ -56,7 +56,7 @@
                         Excerpt
                     </label>
 
-                    <textarea class="border border-gray-400 p-2 w-full"
+                    <textarea class="border border-gray-100 p-2 w-full rounded-xl"
                               name="excerpt"
                               id="excerpt"
                               required
@@ -75,7 +75,7 @@
                         Body
                     </label>
 
-                    <textarea class="border border-gray-400 p-2 w-full"
+                    <textarea class="border border-gray-400 p-2 w-full rounded-xl"
                               name="body"
                               id="body"
                               required
@@ -94,7 +94,7 @@
                         Category
                     </label>
 
-                    <select name="category_id" id="category_id">
+                    <select name="category_id" id="category_id" class="px-4 py-2 w-full rounded-xl">
                         @foreach(App\Models\Category::all() as $category)
                             <option
                                 value="{{ $category->id }}"
@@ -102,7 +102,6 @@
                                 {{ ucwords($category->name) }}
                             </option>
                         @endforeach
-
                     </select>
 
                     @error('category')
