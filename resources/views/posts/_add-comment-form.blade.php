@@ -13,7 +13,7 @@
                 <h2>Want to participate?</h2>
             </header>
 
-            <div class="mt-8">
+            <x-form.field>
                 <textarea
                     name="body"
                     class="w-full py-2 px-4 rounded-xl border border-gray-200"
@@ -22,15 +22,13 @@
                     required
                 ></textarea>
 
-                @error('body')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
-                @enderror
-            </div>
+                <x-form.error name="body"/>
+            </x-form.field>
 
-            <div class="flex justify-end mt-4">
-                <x-submit-button>
+            <div class="flex justify-end">
+                <x-form.button>
                     Post
-                </x-submit-button>
+                </x-form.button>
             </div>
         </form>
     </x-panel>
