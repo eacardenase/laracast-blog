@@ -23,10 +23,11 @@ class AdminPostController extends Controller
 
     public function store()
     {
-        $attributes = array_merge($this->validatePost(), [
+        $attributes = [
+            ...$this->validatePost(),
             'user_id' => auth()->id(),
             'thumbnail' => request()->file('thumbnail')->store('thumbnails'),
-        ]);
+        ];
 
         Post::create($attributes);
 
@@ -60,10 +61,8 @@ class AdminPostController extends Controller
         return back()->with('success', 'Post deleted!');
     }
 
-    protected function validatePost(?Post $post = null): array
+    protected function validatePost(?Post $post = new Post()): array
     {
-        $post ??= new Post();
-
         return request()->validate([
             'title' => ['required'],
             'thumbnail' => $post->exists ? ['image'] : ['required', 'image'],
