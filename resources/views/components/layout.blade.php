@@ -1,16 +1,20 @@
 <!doctype html>
 
-<title>Laravel From Scratch Blog</title>
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="//unpkg.com/alpinejs" defer></script>
+<head>
+    <meta charset="utf-8">
+    <title>Laravel From Scratch Blog</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
 
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
-</style>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
 
 <body style="font-family: Open Sans, sans-serif">
 <section class="px-6 py-8">
@@ -28,7 +32,8 @@
                         <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->username }}!</button>
                     </x-slot>
 
-                    <x-dropdown-item href="/">Dashboard</x-dropdown-item>
+                    <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">All Posts
+                    </x-dropdown-item>
                     <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">
                         New Post
                     </x-dropdown-item>
