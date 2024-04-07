@@ -12,7 +12,7 @@ class AdminPostController extends Controller
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' => Post::paginate(50),
+            'posts' => Post::latest()->paginate(50),
         ]);
     }
 
@@ -65,5 +65,12 @@ class AdminPostController extends Controller
         $post->update($attributes);
 
         return back()->with('success', 'Post Updated!');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return back()->with('success', 'Post deleted!');
     }
 }
