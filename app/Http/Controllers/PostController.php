@@ -9,6 +9,10 @@ class PostController extends Controller
 {
     public function index()
     {
+        //        $this->authorize('admin');
+        //        auth()->user()->can('admin');
+        //        auth()->user()->cannot('admin');
+
         return view('posts.index', [
             'posts' => Post::latest()
                 ->filter(
