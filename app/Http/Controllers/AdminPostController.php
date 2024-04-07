@@ -11,8 +11,9 @@ class AdminPostController extends Controller
 {
     public function index()
     {
+
         return view('admin.posts.index', [
-            'posts' => Post::latest()->paginate(50),
+            'posts' => Post::latest()->paginate(10),
         ]);
     }
 
